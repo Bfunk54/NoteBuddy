@@ -25,15 +25,17 @@ body {
 }
 
 .note-textarea {
+  box-sizing: border-box;
   resize: none;
-  height: calc(100% - 63px);
-  padding-top: 15px;
+  height: 100%;
+  -webkit-box-sizing: border-box;
 }
 
 .note-title {
-  height: 50px;
   margin-top: 13px;
   font-size: 3rem;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 .note-title:read-only,
