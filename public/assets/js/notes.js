@@ -26,7 +26,7 @@ const show = (elem) => {
   let activeNote = {};
   
   const getNotes = () =>
-    fetch('/notes', {
+    fetch('/api/notes', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const show = (elem) => {
     });
   
   const saveNote = (note) =>
-    fetch('/notes', {
+    fetch('/api/notes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const show = (elem) => {
     });
   
   const deleteNote = (id) =>
-    fetch(`/notes/${id}`, {
+    fetch(`/api/notes/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
