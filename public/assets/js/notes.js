@@ -1,9 +1,11 @@
+// Initiate variables to hold html elements
 let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
+// Only set these variables if we are on the notes page
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -25,6 +27,8 @@ const show = (elem) => {
   // activeNote is used to keep track of the note in the textarea
   let activeNote = {};
   
+
+  // Fetch request on the notes page, get the list of notes currently saved in the database
   const getNotes = () =>
     fetch('/api/notes', {
       method: 'GET',
@@ -33,6 +37,7 @@ const show = (elem) => {
       },
     });
   
+  // Fetch request to save a new note to the database 
   const saveNote = (note) =>
     fetch('/api/notes', {
       method: 'POST',
@@ -42,6 +47,7 @@ const show = (elem) => {
       body: JSON.stringify(note),
     });
   
+  // Fetch request to delete a note
   const deleteNote = (id) =>
     fetch(`/api/notes/${id}`, {
       method: 'DELETE',
@@ -52,9 +58,11 @@ const show = (elem) => {
   
   
 
+// Render the active note to the main section
 const renderActiveNote = () => {
     hide(saveNoteBtn);
   
+    // If there is an activeNote, display it, otherwise render empty inputs
     if (activeNote.id) {
       noteTitle.setAttribute('readonly', true);
       noteText.setAttribute('readonly', true);
@@ -68,6 +76,7 @@ const renderActiveNote = () => {
     }
   };
   
+  // Put note values in an object to save to the database and update the view
   const handleNoteSave = () => {
     const newNote = {
       title: noteTitle.value,
@@ -87,10 +96,12 @@ const renderActiveNote = () => {
     const note = e.target;
     const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
   
+    // If the target note's id is equal to that of the activeNote's id, set that note to an empty object
     if (activeNote.id === noteId) {
       activeNote = {};
     }
   
+    // Delete the note and reload the list
     deleteNote(noteId).then(() => {
       getAndRenderNotes();
       renderActiveNote();
@@ -110,6 +121,7 @@ const renderActiveNote = () => {
     renderActiveNote();
   };
   
+  // Render the save button if there is text in both areas
   const handleRenderSaveBtn = () => {
     if (!noteTitle.value.trim() || !noteText.value.trim()) {
       hide(saveNoteBtn);
@@ -156,17 +168,20 @@ const renderActiveNote = () => {
       return liEl;
     };
   
+    // If there are no notes in the database, show a message
     if (jsonNotes.length === 0) {
       noteListItems.push(createLi('No saved Notes', false));
     }
   
+    // Make a new list item for each note in the database
     jsonNotes.forEach((note) => {
       const li = createLi(note.title);
       li.dataset.note = JSON.stringify(note);
   
       noteListItems.push(li);
     });
-  
+
+    // Append the list items
     if (window.location.pathname === '/notes') {
       noteListItems.forEach((note) => noteList[0].append(note));
     }
@@ -175,6 +190,7 @@ const renderActiveNote = () => {
   // Gets notes from the db and renders them to the sidebar
   const getAndRenderNotes = () => getNotes().then(renderNoteList);
   
+  // If on the notes page, add event listeners for all the buttons
   if (window.location.pathname === '/notes') {
     saveNoteBtn.addEventListener('click', handleNoteSave);
     newNoteBtn.addEventListener('click', handleNewNoteView);
@@ -182,4 +198,5 @@ const renderActiveNote = () => {
     noteText.addEventListener('keyup', handleRenderSaveBtn);
   }
   
+  // Run the initial function
   getAndRenderNotes();
