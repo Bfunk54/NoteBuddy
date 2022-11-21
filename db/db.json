@@ -1,12 +1,7 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text",
-        "id": 1289483823
-    },
-    {
-        "title": "First Note",
-        "text": "Best note content ever.",
-        "id": "bab2"
+        "title": "Test Note",
+        "text": "Test Text",
+        "id": "84d8"
     }
 ]

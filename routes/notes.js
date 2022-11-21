@@ -29,6 +29,7 @@ note.post("/", (req, res) => {
 
 note.delete("/:id", (req, res) => {
   const note_id = req.params.id;
+  console.log(note_id);
   readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
     .then((json) => {
