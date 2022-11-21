@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('./routes/api', api);
 
+
 app.use(express.static('public'));
 
 // GET Route for homepage
@@ -19,7 +20,7 @@ app.get('/', (req, res) =>
 );
 
 // GET Route for notes page
-app.get('/api/notes', (req, res) =>
+app.get('/notes', (req, res) =>
 res.sendFile( __dirname + "/" + "notes.html" )
 );
 
