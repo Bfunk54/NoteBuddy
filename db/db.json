@@ -3,5 +3,10 @@
         "title": "Test Note",
         "text": "Test Text",
         "id": "84d8"
+    },
+    {
+        "title": "New Note",
+        "text": "It works!",
+        "id": "a1f0"
     }
 ]
