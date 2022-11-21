@@ -3,7 +3,8 @@ const {
   readFromFile,
   readAndAppend,
   writeToFile,
-} = require("./fsUtils");
+} = require("./helpers/fsUtils");
+const uuid = require('./helpers/uuid');
 
 note.get("/", (req, res) => {
   readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
@@ -16,7 +17,7 @@ note.post("/", (req, res) => {
     const note = {
       title: title,
       text: text,
-      id: uuidv4()
+      id: uuid()
     };
 
     readAndAppend(note, "./db/db.json");
