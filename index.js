@@ -1,7 +1,9 @@
+// Require the necessary packages for this express app
 const express = require('express');
 const path = require('path');
 const api = require('./routes/index.js');
 
+// Create an instance of the express app, setting up the port for the server
 const PORT = process.env.port || 3001;
 
 const app = express();
@@ -24,6 +26,7 @@ app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/index.html'))
 );
 
+// Listen on the port setup earlier
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
