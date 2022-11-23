@@ -43,7 +43,11 @@ To test, use a program such as DBeaver to see the database and see how all notes
 <p align="right">(<a href="#mit-license">back to top</a>)</p>
 
 ## Screenshots
-![]()
+![](./screenshots/NoteBuddy1.png)
+![](./screenshots/NoteBuddy2.png)
+![](./screenshots/NoteBuddy3.png)
+![](./screenshots/NoteBuddy4.png)
+![](./screenshots/NoteBuddy5.png)
 <p align="right">(<a href="mit-license">back to top</a>)</p>
 
 ## Questions
