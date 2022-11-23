@@ -39,7 +39,7 @@ Bfunk54/NoteBuddy
 <p align="right">(<a href="#mit-license">back to top</a>)</p>
 
 ## Tests
-To test, use a program such as DBeaver to see the database and see how all notes save and delete from the database. You can also test by using the website and seeing if all functions are working correctly.
+To test, clone into the repo and use a program such as DBeaver to see the database and see how all notes save and delete from the database. You can also test by using the website and seeing if all functions are working correctly.
 <p align="right">(<a href="#mit-license">back to top</a>)</p>
 
 ## Screenshots
