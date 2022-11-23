@@ -57,6 +57,6 @@ Email me with any questions: ben_fein@icloud.com
 <p align="right">(<a href="#mit-license">back to top</a>)</p>
 
 ## Link to the site:
-[NoteBuddy]()
-[Github Repo]()
+[NoteBuddy](https://the-note-buddy.herokuapp.com/)
+[Github Repo](https://github.com/Bfunk54/NoteBuddy)
 <p align="right">(<a href="#mit-license">back to top</a>)</p>
