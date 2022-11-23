@@ -1,7 +1,7 @@
 // Require the necessary packages for this express app
-const express = require('express');
-const path = require('path');
-const api = require('./routes/index.js');
+const express = require("express");
+const path = require("path");
+const api = require("./routes/index.js");
 
 // Create an instance of the express app, setting up the port for the server
 const PORT = process.env.port || 3001;
@@ -11,20 +11,17 @@ const app = express();
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', api);
+app.use("/api", api);
 
-
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // GET Route for notes page
-app.get('/notes', (req, res) =>
-res.sendFile(path.join(__dirname, '/notes.html'))
+app.get("/notes", (req, res) =>
+  res.sendFile(path.join(__dirname, "/notes.html"))
 );
 
 // GET Route for homepage
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/index.html'))
-);
+app.get("*", (req, res) => res.sendFile(path.join(__dirname, "/index.html")));
 
 // Listen on the port setup earlier
 app.listen(PORT, () =>
