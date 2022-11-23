@@ -8,5 +8,10 @@
         "title": "New Note",
         "text": "It works!",
         "id": "a1f0"
+    },
+    {
+        "title": "Best Note",
+        "text": "Best note content ever.",
+        "id": "3606"
     }
 ]
